@@ -1,0 +1,53 @@
+body {
+    font-family: Roboto, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #5cdb95;
+    color: #05386b;
+    margin: 0;
+}
+
+#header {
+    display: flex;
+    justify-content: center;
+    background-color: #05386b;
+    color: #5cdb95;
+    font-size: 24px;
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+}
+
+.scoreLine, .subScore {
+    margin: 8px;
+}
+
+#scorebox {
+    display: flex;
+    gap: 40px;
+    margin: 16px;
+}
+
+.player-hand, .computer-hand {
+    width: 100px;
+    height: auto;
+}
+
+.score {
+    text-align: center;
+    width: 100px;
+}
+
+button {
+    width: 120px;
+    height: 120px;
+    margin: 32px;
+    border-radius: 2px;
+    
+}
