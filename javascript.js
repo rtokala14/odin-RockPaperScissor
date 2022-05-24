@@ -5,44 +5,55 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
+    compImg.src = "/images/" + computerSelection.toLowerCase() + ".png";
+    playImg.src = "/images/" + playerSelection.toLowerCase() + ".png";
     output = 0;
     if (equalsCaseInsensitive(playerSelection, "Rock")) {
         if (computerSelection === "Rock") {
-            result.textContent = "Draw! Both chose Rock";
+            result.textContent = "Draw!";
+            subResult.textContent = "Both chose Rock";
         }
         else if (computerSelection === "Paper") {
-            result.textContent = 'You Lose! Paper beats Rock';
+            result.textContent = 'You Lose!';
+            subResult.textContent = 'Paper beats Rock';
             output = -1;
         }
         else {
-            result.textContent = "You Win! Rock beats Scissor";
+            result.textContent = "You Win!";
+            subResult.textContent =  "Rock beats Scissor";
             output = 1;
         }
     }
     else if (equalsCaseInsensitive(playerSelection, "Paper")) {
         if (computerSelection === "Rock") {
-            result.textContent = "You Win! Paper beats Rock";
+            result.textContent = "You Win!";
+            subResult.textContent = "Paper beats Rock";
             output = 1;
         }
         else if (computerSelection === "Paper") {
-            result.textContent = 'Draw! Both chose Paper';
+            result.textContent = 'Draw!';
+            subResult.textContent =  'Both chose Paper';
         }
         else {
-            result.textContent = "You Lose! Scissor beats Paper";
+            result.textContent = "You Lose!";
+            subResult.textContent =  "Scissor beats Paper";
             output = -1;
         }
     }
     else if (equalsCaseInsensitive(playerSelection, "Scissor")) {
         if (computerSelection === "Rock") {
-            result.textContent = "You Lose! Rock beats Scissor";
+            result.textContent = "You Lose!";
+            subResult.textContent =  "Rock beats Scissor";
             output = -1;
         }
         else if (computerSelection === "Paper") {
-            result.textContent = 'You Win! Scissor beats Paper';
+            result.textContent = 'You Win!';
+            subResult.textContent =  'Scissor beats Paper';
             output = 1;
         }
         else {
-            result.textContent = "Draw! You both chose Scissor";
+            result.textContent = "Draw!";
+            subResult.textContent =  "You both chose Scissor";
         }
     }
     return output
@@ -60,10 +71,13 @@ function equalsCaseInsensitive(text, other) {
 
 let compScore = 0;
 let playScore = 0;
-const buttons = document.querySelectorAll("button");
-const result = document.querySelector('#result');
+const buttons = document.querySelectorAll(".button");
+const result = document.querySelector('.scoreLine');
+const subResult = document.querySelector('.subScore')
 const comp = document.querySelector('#compScore');
 const play = document.querySelector('#playScore');
+const compImg = document.querySelector('.computer-hand');
+const playImg = document.querySelector('.player-hand');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         let out = playRound(button.id, computerPlay());
@@ -71,10 +85,5 @@ buttons.forEach((button) => {
         if (out === -1) compScore+=1;
         comp.textContent = compScore.toString();
         play.textContent = playScore.toString();
-        if (compScore === 5 || playScore === 5) {
-            if (compScore === 5) result.textContent = "The Computer has won the series :(";
-            else result.textContent = "YAYY!! You have beat the Computer!!";
-            button.removeEventListener('click');
-        }
     });
 });

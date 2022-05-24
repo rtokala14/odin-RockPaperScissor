@@ -30,13 +30,13 @@ body {
 
 #scorebox {
     display: flex;
-    gap: 40px;
+    gap: 80px;
     margin: 16px;
 }
 
 .player-hand, .computer-hand {
-    width: 100px;
-    height: auto;
+    width: auto;
+    height: 150px;
 }
 
 .score {
@@ -49,8 +49,10 @@ button {
     height: 150px;
     margin: 32px;
     border-radius: 24px;
+    border-color: #05386b;
     background-color: #5cdb95;
     box-shadow: 12px 12px 5px 0.5px #8ee4af;
+    transition: transform 0.2s;
 }
 
 .button-image {
@@ -58,8 +60,23 @@ button {
     height: 120px;
 }
 
-#footer {
+/*.button-image:hover {
+    transform: scale(1.1);
+}*/
+
+button:hover {
+    transform: scale(1.2);
+    cursor: pointer;
     background-color: #8ee4af;
+    box-shadow: 12px 12px 5px 0.5px #5cdb95;
+}
+
+button:click {
+    background-color: #379683;
+}
+
+#footer {
+    /*background-color: #8ee4af;*/
     display: flex;
     justify-content: center;
 }
