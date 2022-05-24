@@ -2,7 +2,6 @@ body {
     font-family: Roboto, sans-serif;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     background-color: #5cdb95;
     color: #05386b;
     margin: 0;
@@ -22,6 +21,7 @@ body {
     justify-content: center;
     align-items: center;
     margin-top: 16px;
+    flex: 5 0 auto;
 }
 
 .scoreLine, .subScore {
@@ -48,6 +48,17 @@ button {
     width: 120px;
     height: 120px;
     margin: 32px;
-    border-radius: 2px;
-    
+    border: none;
+    background-color: #5cdb95;
+}
+
+.button-image {
+    width: 120px;
+    height: 120px;
+}
+
+#footer {
+    background-color: #8ee4af;
+    display: flex;
+    justify-content: center;
 }
