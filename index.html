@@ -4,17 +4,31 @@
         <meta charset="UTF-8">
         <title>Page Title</title>
         <script src="javascript.js" defer></script>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div>
-            <button id="Rock">Rock</button>
-            <button id="Paper">Paper</button>
-            <button id="Scissor">Scissor</button>
+        <div id="header">ROCK PAPER SCISSORS</div>
+        
+        <div id="main">
+            <h1 class="scoreLine">Choose Your Hand</h1>
+            <h2 class="subScore">First to 5 points wins!</h2>
+            <div id="scorebox">
+                <div class="score player">
+                    <img class="player-hand" alt="Player: 0">
+                </div>
+                <div class="score computer">
+                    <img class="computer-hand" alt="Computer: 0">
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="Rock"></button>
+                <button class="Paper"></button>
+                <button class="Scissor"></button>
+            </div>
         </div>
-        <div id="result">Choose a button to start the game</div>
-        <div>Computer Score</div>
-        <div id="compScore">0</div>
-        <div>Player Score</div>
-        <div id="playScore">0</div>
+
+        <div id="footer">
+            Copyright @ 2022 rtokala14
+        </div>
     </body>
 </html>
