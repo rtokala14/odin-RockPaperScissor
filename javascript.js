@@ -5,55 +5,76 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    output = "Invalid Entry"
+    output = 0;
     if (equalsCaseInsensitive(playerSelection, "Rock")) {
         if (computerSelection === "Rock") {
-            output = "Draw! Both chose Rock"
+            result.textContent = "Draw! Both chose Rock";
         }
         else if (computerSelection === "Paper") {
-            output = 'You Lose! Paper beats Rock'
+            result.textContent = 'You Lose! Paper beats Rock';
+            output = -1;
         }
         else {
-            output = "You Win! Rock beats Scissor"
+            result.textContent = "You Win! Rock beats Scissor";
+            output = 1;
         }
     }
     else if (equalsCaseInsensitive(playerSelection, "Paper")) {
         if (computerSelection === "Rock") {
-            output = "You Win! Paper beats Rock"
+            result.textContent = "You Win! Paper beats Rock";
+            output = 1;
         }
         else if (computerSelection === "Paper") {
-            output = 'Draw! Both chose Paper'
+            result.textContent = 'Draw! Both chose Paper';
         }
         else {
-            output = "You Lose! Scissor beats Paper"
+            result.textContent = "You Lose! Scissor beats Paper";
+            output = -1;
         }
     }
     else if (equalsCaseInsensitive(playerSelection, "Scissor")) {
         if (computerSelection === "Rock") {
-            output = "You Lose! Rock beats Scissor"
+            result.textContent = "You Lose! Rock beats Scissor";
+            output = -1;
         }
         else if (computerSelection === "Paper") {
-            output = 'You Win! Scissor beats Paper'
+            result.textContent = 'You Win! Scissor beats Paper';
+            output = 1;
         }
         else {
-            output = "Draw! You both chose Scissor"
+            result.textContent = "Draw! You both chose Scissor";
         }
     }
     return output
 }
 
-function game() {
+/*function game() {
     let playerScore = 0
     let computerScore = 0
-    for (let i = 0; i <= 5; i++) {
-        let input = prompt("Please enter your selection (Rock, Paper, or Scissor):")
-        computerSelection = computerPlay()
-        alert(playRound(input, computerSelection))
-    }
-}
+    
+}*/
 
 function equalsCaseInsensitive(text, other) {
     return text.localeCompare(other, undefined, {sensitivity: 'base'}) === 0
 }
 
-game()
+let compScore = 0;
+let playScore = 0;
+const buttons = document.querySelectorAll("button");
+const result = document.querySelector('#result');
+const comp = document.querySelector('#compScore');
+const play = document.querySelector('#playScore');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        let out = playRound(button.id, computerPlay());
+        if (out === 1) playScore+=1;
+        if (out === -1) compScore+=1;
+        comp.textContent = compScore.toString();
+        play.textContent = playScore.toString();
+        if (compScore === 5 || playScore === 5) {
+            if (compScore === 5) result.textContent = "The Computer has won the series :(";
+            else result.textContent = "YAYY!! You have beat the Computer!!";
+            button.removeEventListener('click');
+        }
+    });
+});
