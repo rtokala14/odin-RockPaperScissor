@@ -80,10 +80,15 @@ const compImg = document.querySelector('.computer-hand');
 const playImg = document.querySelector('.player-hand');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        let out = playRound(button.id, computerPlay());
-        if (out === 1) playScore+=1;
-        if (out === -1) compScore+=1;
-        comp.textContent = compScore.toString();
-        play.textContent = playScore.toString();
+        if (compScore === 5 || playScore === 5) {
+            endGame();
+        }
+        else {
+            let out = playRound(button.id, computerPlay());
+            if (out === 1) playScore+=1;
+            if (out === -1) compScore+=1;
+            comp.textContent = "Computer: " + compScore.toString();
+            play.textContent = "Player: " + playScore.toString();
+        }
     });
 });
