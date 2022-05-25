@@ -5,8 +5,8 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    compImg.src = "/images/" + computerSelection.toLowerCase() + ".png";
-    playImg.src = "/images/" + playerSelection.toLowerCase() + ".png";
+    compImg.src = "./images/" + computerSelection.toLowerCase() + ".png";
+    playImg.src = "./images/" + playerSelection.toLowerCase() + ".png";
     output = 0;
     if (equalsCaseInsensitive(playerSelection, "Rock")) {
         if (computerSelection === "Rock") {
